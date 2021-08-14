@@ -17,7 +17,7 @@ script:
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $dugu-defeat
+  github_token: $DuguDefeat
   keep_history: true
   local_dir: storybook-static
   on:
