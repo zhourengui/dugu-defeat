@@ -11,6 +11,9 @@ import AutoComplete, {
   DataSrouceType,
 } from "./AutoComplete";
 import { getPrefixCls } from "../utils/comp-utils";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+library.add(fas);
 
 config.disabled = true;
 

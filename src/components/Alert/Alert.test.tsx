@@ -1,6 +1,9 @@
 import { render, fireEvent, waitFor } from "@testing-library/react";
 import { getPrefixCls } from "../utils/comp-utils";
 import Alert, { AlertProps } from "./Alert";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+library.add(fas);
 
 const defaultPorps: AlertProps = {
   title: "Default Alert",

@@ -1,6 +1,6 @@
 {
   "name": "dugu-defeat",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "private": false,
   "description": "react components library",
   "author": "zhourengui",
@@ -15,26 +15,38 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "homepage": "https://github.com/zhourengui/dugu-defeat",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhourengui/dugu-defeat"
+  },
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.15",
     "axios": "^0.21.1",
     "classnames": "^2.3.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "react-transition-group": "^4.4.2",
-    "typescript": "^4.1.2",
     "uuid": "^8.3.2"
   },
   "scripts": {
     "clean": "rimraf ./dist",
     "build": "npm run clean && npm run build-ts && npm run build-css",
-    "test": "react-scripts test",
+    "test:watch": "react-scripts test",
+    "test": "cross-env CI=true react-scripts test",
+    "lint": "eslint --ext js,ts,tsx --max-warnings 0 src",
     "build-ts": "tsc -p tsconfig.build.json",
     "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "prepublish": "npm run lint && npm run test && npm run build"
   },
   "eslintConfig": {
     "extends": [
@@ -51,6 +63,11 @@
         }
       }
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run test"
+    }
   },
   "browserslist": {
     "production": [
@@ -83,10 +100,15 @@
     "@types/react-transition-group": "^4.4.2",
     "@types/uuid": "^8.3.1",
     "babel-loader": "8.1.0",
+    "cross-env": "^7.0.3",
+    "husky": "^7.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "rimraf": "^3.0.2",
     "sass": "^1.37.5",
     "storybook-addon-designs": "^6.0.1",
-    "storybook-dark-mode": "^1.0.8"
+    "storybook-dark-mode": "^1.0.8",
+    "typescript": "^4.1.2"
   }
 }

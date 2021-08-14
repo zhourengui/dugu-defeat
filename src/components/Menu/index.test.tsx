@@ -9,6 +9,9 @@ import Menu, { MenuPorps } from "./Menu";
 import MenuItem from "./MenuItem";
 import { getPrefixCls } from "../utils/comp-utils";
 import SubMenu from "./SubMenu";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+library.add(fas);
 
 const defaultProps: MenuPorps = {
   defaultIndex: "1",
