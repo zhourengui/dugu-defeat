@@ -1,0 +1,38 @@
+$alert-prefix-cls: "#{$defat-prefix}-alert";
+
+.#{$alert-prefix-cls} {
+  position: relative;
+  padding: $btn-padding-y-lg-x $btn-padding-x-lg-x;
+  margin-bottom: $paragraph-margin-bottom;
+  border: $border-width solid transparent;
+  border-radius: $border-radius;
+  text-align: left;
+}
+
+.#{$alert-prefix-cls}-desc {
+  font-size: $font-size-sm;
+  margin: 0.3rem 0 0;
+}
+
+.#{$alert-prefix-cls}-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: $btn-padding-y-lg-x $btn-padding-x-lg-x;
+  color: inherit;
+  cursor: pointer;
+}
+
+.#{$alert-prefix-cls}-success {
+  @include alert-style($white, $success, $success);
+}
+
+.#{$alert-prefix-cls}-default {
+  @include alert-style($white, $primary, $primary);
+}
+.#{$alert-prefix-cls}-danger {
+  @include alert-style($white, $danger, $danger);
+}
+.#{$alert-prefix-cls}-warning {
+  @include alert-style($white, $warning, $warning);
+}

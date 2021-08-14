@@ -1,31 +1,55 @@
 {
   "name": "dugu-defeat",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "description": "react components library",
+  "author": "zhourengui",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "degu",
+    "ui",
+    "defeat",
+    "component"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.15",
+    "axios": "^0.21.1",
+    "classnames": "^2.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
+    "react-transition-group": "^4.4.2",
     "typescript": "^4.1.2",
-    "web-vitals": "^1.0.1"
+    "uuid": "^8.3.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "clean": "rimraf ./dist",
+    "build": "npm run clean && npm run build-ts && npm run build-css",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build-ts": "tsc -p tsconfig.build.json",
+    "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "browserslist": {
@@ -39,5 +63,30 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^6.3.7",
+    "@storybook/addon-actions": "^6.3.7",
+    "@storybook/addon-essentials": "^6.3.7",
+    "@storybook/addon-links": "^6.3.7",
+    "@storybook/node-logger": "^6.3.7",
+    "@storybook/preset-create-react-app": "^3.2.0",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/react": "^6.3.7",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-transition-group": "^4.4.2",
+    "@types/uuid": "^8.3.1",
+    "babel-loader": "8.1.0",
+    "react-scripts": "4.0.3",
+    "rimraf": "^3.0.2",
+    "sass": "^1.37.5",
+    "storybook-addon-designs": "^6.0.1",
+    "storybook-dark-mode": "^1.0.8"
   }
 }

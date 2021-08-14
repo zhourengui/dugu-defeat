@@ -1,0 +1,46 @@
+$auto-complete-prefix-cls: "#{$defat-prefix}-auto-complete";
+$suggestion-prefix-cls: "#{$defat-prefix}-suggestion";
+
+.#{$auto-complete-prefix-cls} {
+  position: relative;
+}
+
+.#{$suggestion-prefix-cls}-loading-icon {
+  list-style: none;
+  padding-left: 0;
+  white-space: nowrap;
+  position: absolute;
+  background: $white;
+  z-index: 100;
+  top: calc(100% + 8px);
+  left: 0;
+  border: $menu-border-width solid $menu-border-color;
+  box-shadow: $submenu-box-shadow;
+  width: 100%;
+  padding: $menu-item-padding-y $menu-item-padding-x;
+}
+
+.#{$suggestion-prefix-cls} {
+  list-style: none;
+  padding-left: 0;
+  white-space: nowrap;
+  position: absolute;
+  background: $white;
+  z-index: 100;
+  top: calc(100% + 8px);
+  left: 0;
+  border: $menu-border-width solid $menu-border-color;
+  box-shadow: $submenu-box-shadow;
+  width: 100%;
+  .#{$suggestion-prefix-cls}-item {
+    padding: $menu-item-padding-y $menu-item-padding-x;
+    cursor: pointer;
+    transition: $menu-transition;
+    color: $body-color;
+    &.is-active,
+    &:hover {
+      background: $menu-item-active-color !important;
+      color: $white !important;
+    }
+  }
+}

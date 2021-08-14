@@ -1,0 +1,54 @@
+$tabs-prefix-cls: "#{$defat-prefix}-tabs";
+$tabs-nav-prefix-cls: "#{$defat-prefix}-tabs-nav";
+$tabs-nav-item-prefix-cls: "#{$defat-prefix}-tabs-nav-item";
+
+.#{$tabs-prefix-cls}-content {
+  text-align: left;
+  margin-top: $btn-padding-x-lg;
+}
+
+.#{$tabs-nav-prefix-cls} {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  border-bottom: $border-width solid $border-color;
+}
+
+.#{$tabs-nav-item-prefix-cls} {
+  display: block;
+  list-style: none;
+  cursor: pointer;
+  padding: $btn-padding-y-lg $btn-padding-x-lg;
+  border: $border-width solid transparent;
+  margin-bottom: -$border-width;
+
+  &.is-disabled {
+    color: $gray-600;
+    pointer-events: none;
+    cursor: default;
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &.is-active {
+    color: $primary;
+  }
+}
+
+.#{$tabs-prefix-cls}-card {
+  .is-active {
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    background-color: $white;
+    border-color: $border-color $border-color $white;
+  }
+}
+
+.#{$tabs-prefix-cls}-line {
+  .is-active {
+    background-color: $white;
+    border-bottom: $menu-item-active-border-width solid $primary;
+  }
+}

@@ -1,0 +1,83 @@
+$btn-prefix-cls: "#{$defat-prefix}-btn";
+
+.#{$btn-prefix-cls} {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  background-image: none;
+  border: $btn-border-width solid transparent;
+  box-shadow: $btn-box-shadow;
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height;
+  color: $body-color;
+  transition: $btn-transition;
+  @include button-size(
+    $btn-padding-y,
+    $btn-padding-x,
+    $btn-font-size,
+    $border-radius
+  );
+  &.disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: $btn-disabled-opacity;
+    box-shadow: none;
+    > * {
+      pointer-events: none;
+    }
+  }
+}
+
+.#{$btn-prefix-cls}-lg {
+  @include button-size(
+    $btn-padding-y-lg,
+    $btn-padding-x-lg,
+    $btn-font-size-lg,
+    $border-radius-lg
+  );
+}
+
+.#{$btn-prefix-cls}-sm {
+  @include button-size(
+    $btn-padding-y-sm,
+    $btn-padding-x-sm,
+    $btn-font-size-sm,
+    $border-radius-sm
+  );
+}
+
+.#{$btn-prefix-cls}-primary {
+  @include button-style($primary, $primary, $white);
+}
+
+.#{$btn-prefix-cls}-danger {
+  @include button-style($danger, $danger, $white);
+}
+
+.#{$btn-prefix-cls}-default {
+  @include button-style($white, $gray-400, $body-color, $white, $primary);
+}
+
+.#{$btn-prefix-cls}-link {
+  font-weight: $font-weight-normal;
+  color: $btn-link-color;
+  text-decoration: $link-hover-decoration;
+  box-shadow: none;
+  &:hover {
+    color: $btn-link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+  &:focus,
+  &.focus {
+    text-decoration: $link-hover-decoration;
+    box-shadow: none;
+  }
+  &:disabled,
+  &.disabled {
+    cursor: not-allowed;
+    color: $btn-link-disabled-color;
+    pointer-events: none;
+  }
+}
