@@ -61,7 +61,7 @@ yarn add dugu-defeat
 ## 🔨 Usage
 
 ```jsx
-import { Button, DatePicker } from "dugu-defeat";
+import { Button } from "dugu-defeat";
 
 const App = () => (
   <>
