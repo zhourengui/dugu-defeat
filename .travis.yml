@@ -12,3 +12,13 @@ cache:
     - node_modules
 env:
   - CI=true
+script:
+  - npm run build-storybook
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $dugu-defeat
+  keep_history: true
+  local_dir: storybook-static
+  on:
+    branch: master
